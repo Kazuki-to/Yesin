@@ -1,0 +1,1215 @@
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* ==========================================================================
+   HOME SECTION STATS
+   ========================================================================== */
+.intro-stats {
+    display: flex;
+    gap: 30px;
+    margin: 25px 0 30px; /* Balances space between paragraph and socials */
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    border-left: 2px solid rgba(229, 181, 103, 0.3); /* Subtle gold vertical border */
+    padding-left: 15px;
+}
+
+.stat-num {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #e5b567; /* Your Gold Accent */
+    line-height: 1;
+}
+
+.stat-lbl {
+    color: #aeb8c4;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 6px;
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 768px) {
+    .intro-stats {
+        justify-content: center; /* Centers stats when text is centered on mobile */
+        gap: 20px;
+    }
+}
+body {
+  font-family: 'Arial', sans-serif;
+  padding: 0;
+  background: radial-gradient(circle at top center, #151e3d 0%, #0B132B 100%);
+  color: #F8F9FA;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  display: inline-block;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #e5b567; /* Tie the gold into your section titles */
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #e5b567;     /* Gold */
+  color: #0B132B;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {  
+  background-color: #d4a14f;
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 10px 20px rgba(229, 181, 103, 0.2); /* Soft gold glow */
+}
+
+.social-links a {
+  font-size: 24px;
+  color: #e5b567;                /* Gold */
+  margin-right: 15px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: #f8f9fa;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(11, 19, 43, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(229, 181, 103, 0.2);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(229, 181, 103, 0.4);
+}
+
+.logo span {
+  color: #e5b567;                /* Gold */
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav ul li a:hover {
+  color: #e5b567;                /* Gold */
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #e5b567;     /* Gold */
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   3. INTRO / HERO SECTION
+   ========================================================================== */
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 80px;
+  background-color: #0B132B;
+}
+
+.intro-text {
+  max-width: 600px;
+}
+
+.intro-text h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.intro-text span {
+  color: #e5b567;                /* Gold */
+}
+
+.intro-text p {
+  margin: 20px 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #c4c4c4;
+}
+
+.intro-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 10px;
+  position: relative;
+}
+
+.intro-image img {
+  width: 380px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #e5b567;     /* Gold */
+  box-shadow: 0 10px 30px rgba(229, 181, 103, 0.3);
+  background: transparent;
+}
+
+/* ==========================================================================
+   4. ABOUT SECTION & PILLS
+   ========================================================================== */
+.about {
+  padding: 80px 7%;
+  background-color: #0B132B;
+}
+
+.about h2.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  display: block;
+  width: 100%;
+  border-bottom: none;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Unified Pills Style */
+.topic-pill {
+  background-color: rgba(229, 181, 103, 0.1);
+  color: #e5b567;
+  border: 1px solid rgba(229, 181, 103, 0.4);
+  border-radius: 50px;
+  padding: 15px 25px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.topic-pill:hover {
+  background-color: #e5b567;
+  color: #0B132B;
+  transform: translateX(10px);
+}
+
+/* Unified Brief Box Style */
+.brief-box {
+  background-color: rgba(255, 255, 255, 0.06);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(229, 181, 103, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.brief-box p {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   5. ACCOMPLISHMENTS & PDF GRID
+   ========================================================================== */
+.accomplishment h2 {
+  margin-left: 0;
+  text-align: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.pdf-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.accomplishment-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.item-image-box {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.item-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- POPUP MODAL --- */
+.modal {
+  display: none; 
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  width: 850px;
+  max-width: 90%;
+  height: 500px;
+  border-radius: 16px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-left {
+  flex: 1.2;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.modal-left h3 {
+  font-size: 1.8rem;
+  color: #003087;                /* Deep Navy */
+  margin-bottom: 15px;
+}
+
+.modal-left p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+.modal-right {
+  flex: 1;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.modal-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px; left: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* ==========================================================================
+   7. SKILLS SECTION
+   ========================================================================== */
+.skills-section {
+  padding: 80px 5%;
+  background-color: #0b132b;
+  text-align: center;
+}
+
+.skills-section h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e5b567;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 40px auto 0;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 40px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(229, 181, 103, 0.2);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  background: rgba(229, 181, 103, 0.1);
+  border-color: #e5b567;
+  box-shadow: 0 10px 30px rgba(229, 181, 103, 0.15);
+}
+
+.skill-icon-box {
+  font-size: 3.5rem;
+  color: #e5b567;                /* Gold */
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-icon-box {
+  transform: scale(1.1);
+}
+
+.skill-card h3 {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+
+/* ==========================================================================
+   SERVICES SECTION
+   ========================================================================== */
+.services {
+  padding: 80px 7%;
+  background-color: #121c3d; /* Slightly lighter navy to create section depth */
+  text-align: center;
+}
+
+.services h2 span {
+  color: #e5b567; /* Highlighting "Services" in Gold */
+}
+
+.services-grid {
+  display: grid;
+  /* Change 280px to 150px to make the blocks small like the skills section */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background-color: #152238;
+  /* Reduced padding makes the block smaller and tighter */
+  padding: 20px 15px; 
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
+  /* Optional: keeps all boxes the same height regardless of text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px; 
+}
+
+/* Hover Effect: Lift, Glow, and Border Highlight */
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: #e5b567;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+              0 0 15px rgba(229, 181, 103, 0.1);
+  box-shadow: 0 0 25px rgba(229,181,103,0.4);
+}
+
+/* Service Icon Styling */
+.service-icon {
+  font-size: 2.5rem;
+  color: #e5b567;
+  margin-bottom: 10px;
+  width: 80px;
+  height: 80px;
+  background: rgba(229, 181, 103, 0.05); /* Soft gold tint circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: rgba(229, 181, 103, 0.1);
+}
+
+/* Text Styling */
+.service-card h3 {
+  color: #F8F9FA;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.service-card p {
+  color: #aeb8c4; /* Muted slate text for better hierarchy */
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Optional Bottom Accent Line */
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #e5b567;
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+.service-card:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .services {
+    padding: 60px 20px;
+  }
+  
+  .service-card {
+    padding: 30px 20px;
+  }
+}
+/* 1. The Container */
+.services-gallery-container {
+    display: flex;
+    gap: 0; /* Remove gap to make snapping more precise */
+    overflow-x: auto;
+    
+    /* THE FIX: This turns on the snapping 'magnet' */
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth;
+    
+    /* Standard cleanup */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    width: 100%;
+}
+
+/* 2. The Image */
+.service-modal-img {
+    /* THE FIX: Each image MUST be the same width as the container */
+    width: 100%; 
+    flex-shrink: 0;
+    
+    /* THE FIX: Tells the browser to snap the START of the image to the START of the container */
+    scroll-snap-align: start; 
+    
+    max-height: 400px;
+    object-fit: contain; /* 'contain' ensures the whole photo is visible without cropping */
+    background: #0B132B; /* Adds a clean background if the photo is vertical */
+}
+
+/* ==========================================================================
+   9. CONTACT SECTION
+   ========================================================================== */
+.contact {
+  padding: 100px 80px;
+  background-color: #0B132B;
+  color: #ffffff;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  color: #e5b567;
+  background: rgba(229, 181, 103, 0.1);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.contact-details span {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  max-width: 45%;
+}
+
+.contact-info h2 {
+  font-size: 36px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.contact-info h2 span {
+  color: #e5b567;                /* Gold */
+}
+
+.contact-info p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #c4c4c4;
+}
+
+.contact-info p strong {
+  color: #ffffff;
+}
+
+.contact-form {
+  max-width: 45%;
+  width: 100%;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: #1a2540;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.contact-form textarea {
+  height: 150px;
+  resize: none;
+}
+
+.contact-form .btn {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #e5b567;
+  color: #0B132B;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form .btn:hover {
+  background-color: #d4a14f;
+}
+
+/* Contact link styling */
+.contact-item {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-link i {
+    color: #e5b567;
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-link:hover {
+    color: #f0c77a;
+}
+
+/* ==========================================================================
+   MISSION & VISION BLOCKS
+   ========================================================================== */
+.mission-vision {
+  padding: 60px 7%;
+  background-color: #0B132B; /* Primary Navy */
+  text-align: center;
+}
+
+.mv-grid {
+  display: grid;
+  /* '150px' ensures the blocks are compact like skill items */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  max-width: 600px; /* Constrains the grid so the two blocks stay centered together */
+  margin: 30px auto 0;
+}
+
+.mv-card {
+  background-color: #152238; /* Secondary lighter navy for contrast */
+  padding: 25px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(229, 181, 103, 0.1);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+}
+
+/* Hover effects matching the rest of your site interactives */
+.mv-card:hover {
+  transform: translateY(-5px);
+  border-color: #e5b567;
+  background-color: #0d1733;
+}
+
+.mv-icon {
+  font-size: 2.2rem;
+  color: #e5b567; /* Accent Gold */
+  margin-bottom: 12px;
+}
+
+.mv-card h3 {
+  font-size: 1.1rem;
+  color: #e5b567;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.mv-card p {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #F8F9FA;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Forces single column execution on small phones */
+@media (max-width: 480px) {
+  .mv-grid {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+}
+/* ==========================================================================
+   SERVICES SECTION (Main Page Grid)
+   ========================================================================== */
+.services {
+  padding: 80px 7%;
+  background-color: #121c3d; /* Lighter navy to create section depth */
+  text-align: center;
+}
+
+.services h2 span {
+  color: #e5b567; /* Highlighting "Services" in Gold */
+}
+
+.section-subtitle {
+  color: #aeb8c4;
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-grid {
+  display: grid;
+  /* Auto-fit handles responsiveness perfectly without many media queries */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* --- Service Card --- */
+.service-card {
+  background-color: #152238;
+  padding: 40px 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(229, 181, 103, 0.1);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 250px;
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+  border-color: #e5b567;
+  background-color: #1c2b4a;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 
+              0 0 20px rgba(229, 181, 103, 0.1);
+}
+
+/* Service Icon */
+.service-icon {
+  font-size: 2.8rem;
+  color: #e5b567;
+  margin-bottom: 20px;
+  width: 90px;
+  height: 90px;
+  background: rgba(229, 181, 103, 0.05); /* Soft gold tint circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: rgba(229, 181, 103, 0.15);
+}
+
+.service-card h3 {
+  color: #F8F9FA;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.service-card p {
+  color: #aeb8c4; /* Muted slate text for better hierarchy */
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* "View Gallery" Hint appearing on Hover */
+.service-card::before {
+  content: 'View Gallery';
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #e5b567;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.service-card:hover::before {
+  bottom: 15px;
+  opacity: 1;
+}
+
+
+/* ==========================================================================
+   MODAL GALLERY (Swipe & Laptop Arrows)
+   ========================================================================== */
+
+/* The outer container inside your popup modal */
+.services-gallery-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 25px;
+  background: #0B132B; /* Dark canvas for the photos */
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(229, 181, 103, 0.2);
+}
+
+/* The actual horizontal scroll section */
+.services-gallery-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory; /* The "Magnet" feature for exact alignment */
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hides scrollbar on Firefox */
+  -ms-overflow-style: none; /* Hides scrollbar on IE */
+}
+
+/* Hides scrollbar on Chrome, Safari, and Opera */
+.services-gallery-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* The photos inside the modal carousel */
+.service-modal-img {
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: contain; /* Keeps entire image visible without squishing */
+  flex-shrink: 0;
+  scroll-snap-align: start; /* Forces snapping right at the photo borders */
+}
+
+/* --- PREMIUM NAVIGATION ARROWS --- */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Keeps it perfectly centered vertically */
+  background: rgba(11, 19, 43, 0.7); /* Deep semi-transparent navy background */
+  color: #e5b567;
+  border: 1.5px solid #e5b567;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 110;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.nav-btn:hover {
+  background: #e5b567;
+  color: #0B132B;
+  box-shadow: 0 0 20px rgba(229, 181, 103, 0.4);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* Hide arrows on mobile touch devices (Coarse pointer = touch screen) */
+@media (pointer: coarse) {
+  .nav-btn {
+    display: none;
+  }
+}
+
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .services {
+    padding: 60px 5%; /* Brings margins in closer to utilize mobile space */
+  }
+  
+  .section-subtitle {
+    margin-bottom: 35px;
+  }
+  
+  .service-card {
+    min-height: auto; /* Relaxes grid cell height controls */
+    padding: 30px 20px;
+  }
+  
+  .service-modal-img {
+    max-height: 350px; /* Reduces landscape cutoff on smaller screens */
+  }
+}
+/* ==========================================================================
+   10. MEDIA QUERIES
+   ========================================================================== */
+
+/* --- LAPTOP SCREENS (ABOUT SECTION FIX) --- */
+@media (min-width: 1024px) {
+  .about-container {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+
+/* --- MOBILE OPTIMIZATION (Unified) --- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0 0 0; 
+    gap: 12px;
+  }
+
+  nav {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: flex-start;
+    gap: 25px;
+    padding: 0 20px 15px 20px; 
+    width: max-content;
+  }
+
+  nav ul li a {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .intro, .contact, .services, .mission-vision, .skills-section, .about {
+    padding: 60px 20px; 
+  }
+
+  .intro {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  .intro-text h1 {
+    font-size: 32px;
+  }
+
+  .intro-image img {
+    width: 250px; 
+    height: 250px;
+  }
+
+  .pdf-grid-container {
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .contact-info, .contact-form {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .modal-content {
+    flex-direction: column-reverse;
+    height: auto;
+    max-height: 90vh;
+  }
+
+  .modal-right {
+    height: 250px;
+  }
+
+  .modal-left {
+    padding: 20px;
+  }
+
+  .timeline-container {
+    flex-direction: column;
+    margin: 40px auto;
+    gap: 40px;
+  }
+
+  .timeline-line, .timeline-curve {
+    display: none !important;
+  }
+
+  .timeline-item, .item-1, .item-2, .item-3, .item-4, .item-5, .item-6 {
+    transform: none !important;
+    width: 100%;
+    flex-direction: column-reverse !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .milestone-dot {
+    margin-bottom: 15px;
+  }
+
+  .timeline-target {
+    transform: none !important;
+    margin-top: 20px;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  visibility: hidden;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+/* ==========================================================================
+   PRELOADER
+   ========================================================================== */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0B132B; /* Matches your primary-bg */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Higher than header */
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(229, 181, 103, 0.1); /* Faint gold */
+  border-top: 5px solid #e5b567; /* Solid gold */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Class to hide preloader via JS */
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+/* ==========================================================================
+   STATS / IMPACT SECTION
+   ========================================================================== */
+.stats-section {
+    padding: 60px 7%;
+    background-color: #0B132B; /* Deep Navy */
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(229, 181, 103, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+    border-color: #e5b567;
+    background: rgba(229, 181, 103, 0.05);
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    color: #e5b567;
+    margin-bottom: 15px;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #e5b567; /* Gold */
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #aeb8c4;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
