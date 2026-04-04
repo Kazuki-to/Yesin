@@ -1,71 +1,127 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const serviceCards = document.querySelectorAll('.service-trigger');
-    const modal = document.getElementById('accomplishmentModal');
+/**
+ * 1. PRELOADER LOGIC
+ * Runs immediately to handle the loading screen.
+ */
+const hidePreloader = () => {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+        preloader.classList.add("loader-hidden");
+        // Ensure it doesn't block clicks after fading
+        setTimeout(() => {
+            preloader.style.display = "none";
+        }, 500);
+    }
+};
 
-    serviceCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const title = card.getAttribute('data-title');
-            const description = card.getAttribute('data-long');
-            const galleryImages = card.querySelectorAll('.hidden-gallery img');
+// Hide when page is fully loaded
+window.addEventListener("load", hidePreloader);
+// Emergency fail-safe: hide after 4 seconds regardless
+setTimeout(hidePreloader, 4000);
+
+
+/**
+ * 2. MAIN UI LOGIC
+ * All DOM-dependent code goes inside this block.
+ */
+document.addEventListener("DOMContentLoaded", function () {
+  
+    // --- TYPING ANIMATION ---
+    const words = ["Financial Consultant"," Insurance Strategist","MDRT Member", "Certified Trainer of Trainers","Managing Director","Financial Advisor","Financial Consultant","Content Creator"];
+    let wordIndex = 0, charIndex = 0, currentWord = '';
+    const typingSpeed = 100, erasingSpeed = 50, newWordDelay = 2000;
+
+    function type() {
+        const typingElement = document.querySelector('.typing-animation');
+        if (!typingElement) return;
+
+        if (charIndex < words[wordIndex].length) {
+            currentWord += words[wordIndex].charAt(charIndex);
+            typingElement.textContent = currentWord;
+            charIndex++;
+            setTimeout(type, typingSpeed);
+        } else {
+            setTimeout(erase, newWordDelay);
+        }
+    }
+
+    function erase() {
+        const typingElement = document.querySelector('.typing-animation');
+        if (charIndex > 0) {
+            currentWord = currentWord.slice(0, -1);
+            typingElement.textContent = currentWord;
+            charIndex--;
+            setTimeout(erase, erasingSpeed);
+        } else {
+            wordIndex = (wordIndex + 1) % words.length;
+            setTimeout(type, typingSpeed + 500);
+        }
+    }
+
+    if (document.querySelector('.typing-animation')) type();
+
+
+    // --- MODAL CORE ELEMENTS ---
+    const modal = document.getElementById('accomplishmentModal');
+    const closeBtn = document.querySelector('.close-btn');
+    const modalImg = document.getElementById('modalImg');
+
+    // Helper function to close and reset modal state
+    const closeModal = () => {
+        if (modal) modal.style.display = 'none';
+        if (modalImg) modalImg.style.display = 'block'; 
+        
+        if (modal) {
+            const oldGallery = modal.querySelector('.services-gallery-wrapper');
+            if (oldGallery) oldGallery.remove();
+        }
+    };
+
+    // --- ACCOMPLISHMENT MODAL OPEN ---
+    document.querySelectorAll('.accomplishment-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const title = item.getAttribute('data-title') || 'Project Title';
+            const longBrief = item.getAttribute('data-long') || 'No description provided.';
+            const imgSrc = item.querySelector('img')?.src || '';
+
+            // Clean up any leftovers from Service Gallery
+            if (modalImg) modalImg.style.display = 'block';
+            if (modal) {
+                const oldGallery = modal.querySelector('.services-gallery-wrapper');
+                if (oldGallery) oldGallery.remove();
+            }
 
             document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalDescription').textContent = description;
-
-            const modalBody = document.getElementById('modalImg').parentElement;
-            document.getElementById('modalImg').style.display = 'none';
-
-            const oldGallery = modalBody.querySelector('.services-gallery-wrapper');
-            if (oldGallery) oldGallery.remove();
-
-            if (galleryImages.length > 0) {
-                // Create Wrapper for Gallery + Nav
-                const wrapper = document.createElement('div');
-                wrapper.className = 'services-gallery-wrapper';
-
-                const container = document.createElement('div');
-                container.className = 'services-gallery-container';
-
-                galleryImages.forEach(img => {
-                    const newImg = document.createElement('img');
-                    newImg.src = img.src;
-                    newImg.className = 'service-modal-img';
-                    container.appendChild(newImg);
-                });
-
-                wrapper.appendChild(container);
-
-                // Add Nav Arrows only if multiple images exist
-                if (galleryImages.length > 1) {
-                    const nextBtn = document.createElement('button');
-                    const prevBtn = document.createElement('button');
-                    
-                    nextBtn.innerHTML = '&#10095;'; // Right Arrow
-                    prevBtn.innerHTML = '&#10094;'; // Left Arrow
-                    
-                    nextBtn.className = 'nav-btn next';
-                    prevBtn.className = 'nav-btn prev';
-
-                    nextBtn.onclick = () => container.scrollBy({ left: 300, behavior: 'smooth' });
-                    prevBtn.onclick = () => container.scrollBy({ left: -300, behavior: 'smooth' });
-
-                    wrapper.appendChild(prevBtn);
-                    wrapper.appendChild(nextBtn);
-                }
-
-                modalBody.appendChild(wrapper);
-            }
-            modal.style.display = 'flex';
+            document.getElementById('modalDescription').textContent = longBrief;
+            if (modalImg) modalImg.src = imgSrc;
+            if (modal) modal.style.display = 'flex';
         });
     });
-});
-// Fail-safe: Hide after 5 seconds if 'load' event fails
-setTimeout(() => {
-    hidePreloader();
-}, 5000);
 
-function hidePreloader() {
-    const preloader = document.getElementById("preloader");
-    if (preloader && !preloader.classList.contains("loader-hidden")) {
-        preloader.classList.add("loader-hidden");
+    // --- UNIFIED MODAL CLOSE LISTENERS ---
+    if (closeBtn) {
+        closeBtn.onclick = closeModal;
     }
-}
+
+    window.onclick = (e) => { 
+        if (e.target === modal) closeModal(); 
+    };
+
+
+    // --- SKILL BARS & CIRCLES ---
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                bar.style.width = (bar.getAttribute('data-done') || 0) + '%';
+                bar.style.opacity = 1;
+                skillObserver.unobserve(bar);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.progress-done').forEach(bar => skillObserver.observe(bar));
+
+    document.querySelectorAll('.circle').forEach(circle => {
+        circle.style.setProperty('--percent', circle.getAttribute('data-percent'));
+    });
+});
