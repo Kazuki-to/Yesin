@@ -58,3 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+// Fail-safe: Hide after 5 seconds if 'load' event fails
+setTimeout(() => {
+    hidePreloader();
+}, 5000);
+
+function hidePreloader() {
+    const preloader = document.getElementById("preloader");
+    if (preloader && !preloader.classList.contains("loader-hidden")) {
+        preloader.classList.add("loader-hidden");
+    }
+}
