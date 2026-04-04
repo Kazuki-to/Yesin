@@ -1,0 +1,9 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Block search engines from indexing raw system folders (if any)
+Disallow: /private/
+
+# Point search engines to your sitemap
+Sitemap: https://yesinroka.com.np/sitemap.xml
