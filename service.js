@@ -30,12 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     const container = document.createElement('div');
                     container.className = 'services-gallery-container';
 
-                    galleryImages.forEach(img => {
-                        const newImg = document.createElement('img');
-                        newImg.src = img.src;
-                        newImg.className = 'service-modal-img';
-                        container.appendChild(newImg);
-                    });
+                   galleryImages.forEach(img => {
+    const newImg = document.createElement('img');
+    newImg.src = img.src;
+    newImg.className = 'service-modal-img';
+    // Add this line to pass the strict Lighthouse audit:
+    newImg.alt = img.alt || "Yesin Roka Magar financial consulting portfolio image"; 
+    container.appendChild(newImg);
+});
 
                     wrapper.appendChild(container);
 
