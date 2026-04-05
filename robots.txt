@@ -5,5 +5,5 @@ Allow: /
 # Block search engines from indexing raw system folders (if any)
 Disallow: /private/
 
-# Point search engines to your sitemap
-Sitemap: https://yesinroka.com.np/sitemap.xml
+# Point search engines to your NEW sitemap
+Sitemap: https://www.yesinconsultancy.com/sitemap.xml
